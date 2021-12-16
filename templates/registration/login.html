@@ -1,0 +1,42 @@
+{% extends 'registration/base.html' %}
+
+ {% block title %}<title>Kirish</title>{% endblock title %}kirish
+    {% block content %}
+                      <div class="pt-4 pb-2">
+                        <h5 class="card-title text-center pb-0 fs-4">Kirish</h5>
+                        <p class="text-center small">Kirish uchun username va parolingizni kiriting</p>
+                      </div>
+    
+                      <form class="row g-3 needs-validation" novalidate action="{% url 'login' %}" method="POST">
+                          {% csrf_token %}
+    
+                        <div class="col-12">
+                          <label for="yourUsername" class="form-label">Username</label>
+                          <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                            <input type="text" name="username" class="form-control" id="yourUsername" required>
+                            <div class="invalid-feedback">Iltimos usernamemingizni kiriting!</div>
+                          </div>
+                        </div>
+    
+                        <div class="col-12">
+                          <label for="yourPassword" class="form-label">Parol</label>
+                          <input type="password" name="parol" class="form-control" id="yourPassword" required>
+                          <div class="invalid-feedback">Iltimos parolingizni kiriting!</div>
+                        </div>
+    
+                        <div class="col-12">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Meni eslab qol</label>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <button class="btn btn-success w-100" type="submit">Kirish</button>
+                        </div>
+                        <div class="col-12">
+                          <p class="small mb-0">Profilingiz hali ham yo'qmi? <a href="{% url 'signup' %}">Ro'yxatdan o'tish</a></p>
+                        </div>
+                      </form>
+    {% endblock content %}
+                    

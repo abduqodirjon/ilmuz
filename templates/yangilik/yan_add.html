@@ -1,0 +1,47 @@
+{% extends 'yangilik/yan_base.html' %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_field %}
+{% block extrahead %}
+    <script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+{% endblock %}
+
+{% block title %}
+<title>ilm.uz</title>
+{% endblock title %}
+
+
+{% block content %}
+
+<section class="section">
+    <div class="row">
+      <div class="col-lg-9">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Yangiliklar qo'shish oynasi</h5>
+
+            <!-- General Form Elements -->
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+                {{ form.media}}
+                {{ form | crispy }}
+              {% if edit %}
+              <button type="submit" class="btn btn-success">O'zgartirish <i class="bi bi-arrow-repeat"></i></button>
+              {% else %}
+              <button type="submit" class="btn btn-success">Qo'shish <i class="bi bi-plus"></i></button>
+              {% endif %}
+            
+            </form><!-- End General Form Elements -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Vendor JS Files -->
+
+ 
+
+ 
+{% endblock content %}

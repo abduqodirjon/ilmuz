@@ -1,0 +1,24 @@
+{% extends 'registration/base.html' %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_field %}
+ {% block title %}<title>Kirish</title>{% endblock title %}kirish
+    {% block content %}
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4">Ro'yxatdan o'tish</h5>
+                    <p class="text-center small">Profil qaydnomasini yaratish uchun shaxsiy ma'lumotlarni kiriting</p>
+                  </div>
+
+                  <form class="row g-3 needs-validation" novalidate action="{% url 'signup' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form.media}}
+                    {{form|crispy}}
+                    
+                      <button class="btn btn-success w-100" type="submit">Yuborish</button>
+                    </div>
+                    <div class="col-12">
+                      <p class="small mb-0">Profilingiz bormi? <a href="{% url 'login' %}">Kirish</a></p>
+                    </div>
+                  </form>
+    {% endblock content %}
+
+                
